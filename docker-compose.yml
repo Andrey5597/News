@@ -9,6 +9,13 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  migration:
+    build: .
+    command: python manage.py migrate --noinput
+    volumes:
+      - .:/code
+    depends_on:
+      - db
   web:
     restart: always
     build: .
@@ -19,11 +26,4 @@ services:
       - "8001:8001"
     depends_on:
       - migration
-      - db
-  migration:
-    build: .
-    command: python manage.py migrate --noinput
-    volumes:
-      - .:/code
-    depends_on:
       - db
