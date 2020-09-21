@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "4a611e71-b687-4ebb-bfae-f57f206de0a2",
+		"name": "NEWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "POST create post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d08e0daa-b5e1-47e3-a3cc-55386f4fed32",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"post_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"title\": \"New Post\",\n        \"link\": \"https://www.google.com\",\n        \"amount_of_upvotes\": 0,\n        \"author_name\": \"author\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker_base_url}}post/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET list of posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}post/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET first  post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								"{{post_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update first  post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"title\": \"Updated Post\",\n        \"link\": \"https://www.facebook.com\",\n        \"amount_of_upvotes\": 0,\n        \"author_name\": \"author\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								"{{post_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH upvote first  post",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								"{{post_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE delete first  post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								"{{post_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST create post Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1580865-9b74-4735-8fc2-9acd65b2b193",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"post_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"title\": \"New Post\",\n        \"link\": \"https://www.google.com\",\n        \"amount_of_upvotes\": 0,\n        \"author_name\": \"author\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker_base_url}}post/",
+							"host": [
+								"{{docker_base_url}}post"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "POST Add comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f44b149-e834-4992-8b11-c45c8af173e4",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"comment_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"content\": \"new content\",\n        \"author_name\": \"author\",\n        \"post\": {{post_id}}\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker_base_url}}comment/",
+							"host": [
+								"{{docker_base_url}}comment"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"content\": \"new content\",\n        \"author_name\": \"author\",\n        \"post\": 2\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"host": [
+								"{{docker_base_url}}comment"
+							],
+							"path": [
+								"{{comment_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET get one comment by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"host": [
+								"{{docker_base_url}}comment"
+							],
+							"path": [
+								"{{comment_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE delete one comment by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"host": [
+								"{{docker_base_url}}comment"
+							],
+							"path": [
+								"{{comment_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

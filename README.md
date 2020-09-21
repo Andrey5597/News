@@ -10,6 +10,6 @@ and run next command :
 ```
 docker-compose up
 ```
-Link with postman collection: 
+Postman collection is attached and documented with next link: 
 
 https://documenter.getpostman.com/view/7444845/TVKD2chL
