@@ -15,11 +15,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50)),
                 ('link', models.URLField(max_length=128)),
                 ('creation_date', models.DateField(auto_now_add=True)),
-                ('amount_of_upvotes', models.PositiveSmallIntegerField(default=0)),
+                ('amount_of_upvotes',
+                 models.PositiveSmallIntegerField(default=0)),
                 ('author_name', models.CharField(default='', max_length=50)),
             ],
             options={
@@ -30,11 +32,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('author_name', models.CharField(default='', max_length=50)),
                 ('content', models.CharField(max_length=200)),
                 ('creation_date', models.DateField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='post_comments', to='news.post')),
+                ('post', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='post_comments', to='news.post')),
             ],
             options={
                 'verbose_name': 'Comment',
