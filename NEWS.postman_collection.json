@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "4a611e71-b687-4ebb-bfae-f57f206de0a2",
 		"name": "NEWS",
+		"description": " It is a simple news board API.\n It has a list of news with functionality to upvote and comment on them.\n ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -568,6 +569,29 @@
 					"response": []
 				}
 			],
+			"description": "Create CRUD API to manage news posts. \nThe post has next fields: title, link, creation date amount of upvotes, author-name.\nThere is an endpoint to upvote the post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "afa02b3f-6d32-4caf-992d-8da57bc910ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4804c903-7bb0-40a7-b2cd-3d460f5e5ccd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -931,6 +955,29 @@
 							"body": null
 						}
 					]
+				}
+			],
+			"description": "Comment has CRUD API to manage comments. The comment has next fields: author-name, content, creation date",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e6106c64-8c24-477c-89e5-abc03dc0791e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "09542c0b-7158-4df8-9dad-df83754cf985",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}

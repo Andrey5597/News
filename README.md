@@ -13,3 +13,7 @@ docker-compose up
 Postman collection is attached and documented with next link: 
 
 https://documenter.getpostman.com/view/7444845/TVKD2chL
+
+Heroku link:
+
+https://news-test-task-api.herokuapp.com/api/v1/news/
