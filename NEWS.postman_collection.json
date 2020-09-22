@@ -9,7 +9,7 @@
 			"name": "Post",
 			"item": [
 				{
-					"name": "POST create post",
+					"name": "Create post",
 					"event": [
 						{
 							"listen": "test",
@@ -36,43 +36,176 @@
 							}
 						},
 						"url": {
-							"raw": "{{docker_base_url}}post/",
+							"raw": "{{base_url}}post/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								""
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "POST create post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"title\": \"New Post\",\n        \"link\": \"https://www.google.com\",\n        \"amount_of_upvotes\": 0,\n        \"author_name\": \"author\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}post/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:10:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=\"\"; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"title\": \"New Post\",\n    \"link\": \"https://www.google.com\",\n    \"creation_date\": \"2020-09-22\",\n    \"amount_of_upvotes\": 0,\n    \"author_name\": \"author\",\n    \"comments\": []\n}"
+						}
+					]
 				},
 				{
-					"name": "GET list of posts",
+					"name": "Get list of posts",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}post/",
+							"raw": "{{base_url}}post/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								""
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get list of posts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}post/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:10:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "643"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"title\": \"New Post\",\n            \"link\": \"https://www.google.com\",\n            \"creation_date\": \"2020-09-22\",\n            \"amount_of_upvotes\": 0,\n            \"author_name\": \"author\",\n            \"comments\": []\n        },\n        {\n            \"id\": 4,\n            \"title\": \"New Post\",\n            \"link\": \"https://www.google.com\",\n            \"creation_date\": \"2020-09-22\",\n            \"amount_of_upvotes\": 0,\n            \"author_name\": \"author\",\n            \"comments\": []\n        },\n        {\n            \"id\": 6,\n            \"title\": \"New Post\",\n            \"link\": \"https://www.google.com\",\n            \"creation_date\": \"2020-09-22\",\n            \"amount_of_upvotes\": 0,\n            \"author_name\": \"author\",\n            \"comments\": []\n        },\n        {\n            \"id\": 7,\n            \"title\": \"New Post\",\n            \"link\": \"https://www.google.com\",\n            \"creation_date\": \"2020-09-22\",\n            \"amount_of_upvotes\": 0,\n            \"author_name\": \"author\",\n            \"comments\": []\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
-					"name": "GET first  post",
+					"name": "Get first  post",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"raw": "{{base_url}}post/{{post_id}}/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								"{{post_id}}",
@@ -80,10 +213,71 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GET first  post",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}post/{{post_id}}/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										"{{post_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:11:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"title\": \"New Post\",\n    \"link\": \"https://www.google.com\",\n    \"creation_date\": \"2020-09-22\",\n    \"amount_of_upvotes\": 0,\n    \"author_name\": \"author\",\n    \"comments\": []\n}"
+						}
+					]
 				},
 				{
-					"name": "PUT update first  post",
+					"name": "Update first  post",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -97,9 +291,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"raw": "{{base_url}}post/{{post_id}}/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								"{{post_id}}",
@@ -107,17 +301,87 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update first  post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"title\": \"Updated Post\",\n        \"link\": \"https://www.facebook.com\",\n        \"amount_of_upvotes\": 0,\n        \"author_name\": \"author\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}post/{{post_id}}/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										"{{post_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:12:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"title\": \"Updated Post\",\n    \"link\": \"https://www.facebook.com\",\n    \"creation_date\": \"2020-09-22\",\n    \"amount_of_upvotes\": 0,\n    \"author_name\": \"author\",\n    \"comments\": []\n}"
+						}
+					]
 				},
 				{
-					"name": "PATCH upvote first  post",
+					"name": "Upvote first  post",
 					"request": {
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"raw": "{{base_url}}post/{{post_id}}/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								"{{post_id}}",
@@ -125,17 +389,78 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Upvote first  post",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}post/{{post_id}}/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										"{{post_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:12:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
 				},
 				{
-					"name": "DELETE delete first  post",
+					"name": "Delete first  post",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}post/{{post_id}}/",
+							"raw": "{{base_url}}post/{{post_id}}/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								"{{post_id}}",
@@ -143,10 +468,67 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete first  post",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}post/{{post_id}}/",
+									"host": [
+										"{{base_url}}post"
+									],
+									"path": [
+										"{{post_id}}",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:12:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
-					"name": "POST create post Copy",
+					"name": "Create post",
 					"event": [
 						{
 							"listen": "test",
@@ -173,14 +555,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{docker_base_url}}post/",
+							"raw": "{{base_url}}post/",
 							"host": [
-								"{{docker_base_url}}post"
+								"{{base_url}}post"
 							],
 							"path": [
 								""
 							]
-						}
+						},
+						"description": "This request is for providing logic to run all requests in collection one by one."
 					},
 					"response": []
 				}
@@ -191,7 +574,7 @@
 			"name": "Comment",
 			"item": [
 				{
-					"name": "POST Add comment",
+					"name": "Add comment",
 					"event": [
 						{
 							"listen": "test",
@@ -218,19 +601,88 @@
 							}
 						},
 						"url": {
-							"raw": "{{docker_base_url}}comment/",
+							"raw": "{{base_url}}comment/",
 							"host": [
-								"{{docker_base_url}}comment"
+								"{{base_url}}comment"
 							],
 							"path": [
 								""
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Add comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"content\": \"new content\",\n        \"author_name\": \"author\",\n        \"post\": {{post_id}}\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}comment/",
+									"host": [
+										"{{base_url}}comment"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:17:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"author_name\": \"author\",\n    \"content\": \"new content\",\n    \"creation_date\": \"2020-09-22\"\n}"
+						}
+					]
 				},
 				{
-					"name": "PUT update comment",
+					"name": "Update comment",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -244,9 +696,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"raw": "{{base_url}}comment/{{comment_id}}/",
 							"host": [
-								"{{docker_base_url}}comment"
+								"{{base_url}}comment"
 							],
 							"path": [
 								"{{comment_id}}",
@@ -254,17 +706,87 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"content\": \"new content\",\n        \"author_name\": \"author\",\n        \"post\": 2\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}comment/{{comment_id}}/",
+									"host": [
+										"{{base_url}}comment"
+									],
+									"path": [
+										"{{comment_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:18:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"author_name\": \"author\",\n    \"content\": \"new content\",\n    \"creation_date\": \"2020-09-22\"\n}"
+						}
+					]
 				},
 				{
-					"name": "GET get one comment by id",
+					"name": "Get one comment by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"raw": "{{base_url}}comment/{{comment_id}}/",
 							"host": [
-								"{{docker_base_url}}comment"
+								"{{base_url}}comment"
 							],
 							"path": [
 								"{{comment_id}}",
@@ -272,17 +794,78 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get one comment by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}comment/{{comment_id}}/",
+									"host": [
+										"{{base_url}}comment"
+									],
+									"path": [
+										"{{comment_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:18:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"author_name\": \"author\",\n    \"content\": \"new content\",\n    \"creation_date\": \"2020-09-22\"\n}"
+						}
+					]
 				},
 				{
-					"name": "DELETE delete one comment by id",
+					"name": "Delete one comment by id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{docker_base_url}}comment/{{comment_id}}/",
+							"raw": "{{base_url}}comment/{{comment_id}}/",
 							"host": [
-								"{{docker_base_url}}comment"
+								"{{base_url}}comment"
 							],
 							"path": [
 								"{{comment_id}}",
@@ -290,10 +873,89 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete one comment by id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}comment/{{comment_id}}/",
+									"host": [
+										"{{base_url}}comment"
+									],
+									"path": [
+										"{{comment_id}}",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 22 Sep 2020 08:19:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a6852792-aab7-460e-ae6f-8ddb7709dcb4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "da3df978-a59c-4238-8941-d25f6c95138a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
